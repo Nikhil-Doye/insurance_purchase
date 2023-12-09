@@ -26,7 +26,7 @@ class DataIngestion:
             df=pd.read_csv('notebook\data\dataset.csv')
             logging.info('Read the dataset as dataframe')
 
-            os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
+            os.makedirs(os.path.dirname(self.ingestion_config.temp_data_path),exist_ok=True)
 
             df.to_csv(self.ingestion_config.raw_data_path,index=False,header=True)
 
@@ -55,9 +55,9 @@ if __name__=="__main__":
     temp_data,test_data=obj.initiate_data_ingestion()
 
     data_transformation=DataTransformation()
-    train_arr,val_arr,_,_=data_transformation.initiate_data_transformation(temp_data,test_data)
+    train_arr,val_arr,test_arr,_=data_transformation.initiate_data_transformation(temp_data,test_data)
 
     modeltrainer=ModelTrainer()
-    print(modeltrainer.initiate_model_trainer(train_arr,val_arr))
+    print(modeltrainer.initate_model_training(train_arr,val_arr,test_arr))
 
 

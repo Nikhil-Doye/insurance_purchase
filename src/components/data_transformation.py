@@ -30,7 +30,7 @@ class DataTransformation:
         
         '''
         try:
-            numerical_columns = ['age', 'driving_license', 'region_code', 'previously_insured', 'annual_premium', 'policy_sales_channel', 'vintage', 'response']
+            numerical_columns = ['age', 'driving_license', 'region_code', 'previously_insured', 'annual_premium', 'policy_sales_channel', 'vintage']
             categorical_columns = ['gender', 'vehicle_age', 'vehicle_damage']
 
             num_pipeline= Pipeline(
@@ -90,7 +90,7 @@ class DataTransformation:
             temp_df.drop('id', axis=1)
             test_df.drop('id', axis=1)
 
-            numerical_columns = ['age', 'driving_license', 'region_code', 'previously_insured', 'annual_premium', 'policy_sales_channel', 'vintage', 'response']
+            #numerical_columns = ['age', 'driving_license', 'region_code', 'previously_insured', 'annual_premium', 'policy_sales_channel', 'vintage', 'response']
 
             logging.info("Train val split from temp dataset after oversampling")
 
