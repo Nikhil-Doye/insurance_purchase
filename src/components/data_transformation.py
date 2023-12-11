@@ -7,8 +7,8 @@ from sklearn.compose import ColumnTransformer
 from sklearn.model_selection import train_test_split
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
-from imblearn.combine import SMOTEENN
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from imblearn.over_sampling import SMOTE
 
 from src.exception import CustomException
 from src.logger import logging
@@ -31,13 +31,19 @@ class DataTransformation:
         '''
         try:
             numerical_columns = ['age', 'driving_license', 'region_code', 'previously_insured', 'annual_premium', 'policy_sales_channel', 'vintage']
-            categorical_columns = ['gender', 'vehicle_age', 'vehicle_damage']
+            categorical_columns = ['gender', 'vehicle_damage']
 
             num_pipeline= Pipeline(
                 steps=[
                 ("imputer",SimpleImputer(strategy="median")),
                 ("scaler",StandardScaler())
+                ]
+            )
 
+            cat_pipeline= Pipeline(
+                steps=[
+                ("imputer",SimpleImputer(strategy="most_frequent")),
+                ("scaler",StandardScaler())
                 ]
             )
 
@@ -46,11 +52,9 @@ class DataTransformation:
 
             preprocessor=ColumnTransformer(
                 [
-                ("num_pipeline",num_pipeline,numerical_columns)
-
+                ("num_pipeline",num_pipeline,numerical_columns),
+                ("cat_pipeline",cat_pipeline,categorical_columns)
                 ]
-
-
             )
 
             return preprocessor
@@ -68,6 +72,8 @@ class DataTransformation:
 
             temp_df.columns = temp_df.columns.str.lower().str.strip().str.replace(' ', '_').str.replace('(', '').str.replace(')', '')
             test_df.columns = test_df.columns.str.lower().str.strip().str.replace(' ', '_').str.replace('(', '').str.replace(')', '')
+            
+            logging.info("Perform Ordinal encoding of vechicle_age")
 
             gender = {'Male': 0, 'Female': 1}
             vehicle_age = {'> 2 Years': 2, '1-2 Year': 1, '< 1 Year': 0}
@@ -90,36 +96,38 @@ class DataTransformation:
             temp_df.drop('id', axis=1)
             test_df.drop('id', axis=1)
 
-            #numerical_columns = ['age', 'driving_license', 'region_code', 'previously_insured', 'annual_premium', 'policy_sales_channel', 'vintage', 'response']
-
             logging.info("Train val split from temp dataset after oversampling")
 
-            y = temp_df['response'].values
-            X = temp_df.drop('response', axis=1)
+            X_test=test_df.drop(columns=[target_column_name],axis=1)
+            y_test=test_df[target_column_name]
 
-            sme = SMOTEENN(random_state=42)
-            X_res, y_res = sme.fit_resample(X, y)
+            y = temp_df[target_column_name].values
+            X = temp_df.drop(target_column_name, axis=1)
 
-            input_feature_train_df, input_feature_val_df, target_feature_train_df, target_feature_val_df = train_test_split(X_res, y_res, test_size=0.2, stratify=y_res, random_state=42)
+            smote = SMOTE(random_state=42)
+            X_res, y_res = smote.fit_resample(X, y)
 
-            input_feature_test_df=test_df.drop(columns=[target_column_name],axis=1)
-            target_feature_test_df=test_df[target_column_name]
+            X_train, X_val, y_train, y_val = train_test_split(X_res, y_res, test_size=0.2, stratify=y_res, random_state=42)
 
             logging.info(
                 f"Applying preprocessing object on training dataframe and testing dataframe."
             )
 
-            input_feature_train_arr=preprocessing_obj.fit_transform(input_feature_train_df)
-            input_feature_val_arr = preprocessing_obj.transform(input_feature_val_df)
-            input_feature_test_arr=preprocessing_obj.transform(input_feature_test_df)
+            input_feature_train_arr = preprocessing_obj.fit_transform(X_train)
+            input_feature_val_arr = preprocessing_obj.transform(X_val)
+            input_feature_test_arr = preprocessing_obj.fit_transform(X_test)
+            
+
+
+            #print(input_feature_train_arr.shape, y_train.shape)
 
             train_arr = np.c_[
-                input_feature_train_arr, np.array(target_feature_train_df)
+                input_feature_train_arr, np.array(y_train)
             ]
             val_arr = np.c_[
-                input_feature_val_arr, np.array(target_feature_val_df)
+                input_feature_val_arr, np.array(y_val)
             ]
-            test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
+            test_arr = np.c_[input_feature_test_arr, np.array(y_test)]
 
             logging.info(f"Saved preprocessing object.")
 
