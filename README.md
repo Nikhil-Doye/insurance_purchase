@@ -15,12 +15,12 @@ This repository contains code for predicting vehicle insurance purchases using m
     <li>`logger.py`: Logging functionalities for tracking the training process.</li>
     <li>`utils.py`: Consists of various functions which are used in other scripts.</li>
     </ul>
-    <ul><li>components:</li>
-        <li>`ingest_data.py`: Data ingestion</li>
+    <li>components:</li>
+        <ul><li>`ingest_data.py`: Data ingestion</li>
         <li>`data_transformation.py`: Transform data in such a manner which is suitable to be fed to the model.</li>
         <li>`model_trainer.py`: Contains training, validation and testing of the various models and picks the best one.</li></ul>
-    <ul>pipeline:
-        <li>`predict_pipeline.py`: Connects front end with preprocessor and model.</li>
+    <li>pipeline:
+        <ul><li>`predict_pipeline.py`: Connects front end with preprocessor and model.</li>
         </ul>
         </ul>
 <ul>templates:
