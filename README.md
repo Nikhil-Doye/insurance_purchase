@@ -43,7 +43,7 @@ This repository contains code for predicting vehicle insurance purchases using m
 <li>Set up a Python environment and install the necessary dependencies listed in requirements.txt.</li>
 <li>Utilize the provided scripts in the src directory for model training, data preprocessing, etc.</li>
 <li>Execute the run_pipeline.py script to train the model.</li>
-<li>Run the app.py to experience the model via the Flask app.<li>
+<li>Run the app.py to experience the model via the Flask app.</li>
 </ol>
 
 <h2>Contributions</h2>
