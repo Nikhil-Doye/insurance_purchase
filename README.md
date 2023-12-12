@@ -7,21 +7,25 @@ This repository contains code for predicting vehicle insurance purchase using ma
 <ul>
 <li>artifacts: Contains traina and test datasets, preprocessor and model pickle files.</li>
 <li>notebook: Consits of 2 jupyter notebooks, one for EDA and another for optimal thresholding.</li>
+</ul>
 <ul>
-<li>src: Includes scripts for different purposes:
+<li>src: Includes scripts for different purposes:</li>
     <li>`hyperparameters.py`: Defines hyperparameters used in the model.</li>
     <li>`exception.py`: Handles all the exceptions.</li>
     <li>`logger.py`: Logging functionalities for tracking the training process.</li>
     <li>`utils.py`: Consists of various functions which are used in other scripts.</li>
-    <ul>components:
+    </ul>
+    <ul><li>components:</li>
         <li>`ingest_data.py`: Data ingestion</li>
         <li>`data_transformation.py`: Transform data in such a manner which is suitable to be fed to the model.</li>
-        <li>`model_trainer.py`: Contains training, validation and testing of the various models and picks the best one.</li>
+        <li>`model_trainer.py`: Contains training, validation and testing of the various models and picks the best one.</li></ul>
     <ul>pipeline:
         <li>`predict_pipeline.py`: Connects front end with preprocessor and model.</li>
+        </ul>
 <ul>templates:
     <li>`home.html`: consists of the form page.</li>
     <li>`index.html`: landing page.</li>
+    </ul>
 <li>`app.py`: Flask application for demonstrating the functionality of the trained model.</li>
 <li>`requirements.txt``: Cosnists of all the libraries required to run the model.</li>
 
