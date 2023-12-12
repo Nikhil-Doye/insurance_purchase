@@ -22,14 +22,13 @@ This repository contains code for predicting vehicle insurance purchases using m
     <li>pipeline:
         <ul><li>`predict_pipeline.py`: Connects front end with preprocessor and model.</li>
         </ul>
-        </ul>
-<li>templates:<ul>
-    <li>`home.html`: consists of the form page.</li>
+<li>templates:
+    <ul><li>`home.html`: consists of the form page.</li>
     <li>`index.html`: landing page.</li></ul>
 <li>`app.py`: Flask application for demonstrating the functionality of the trained model.</li>
 <li>`requirements.txt``: Cosnists of all the libraries required to run the model.</li>
 </ul>
-
+</ul>
 <h2>Usage</h2>
 <hr>
 <ul>
