@@ -26,9 +26,9 @@ This repository contains code for predicting vehicle insurance purchases using m
 <ul>templates:
     <li>`home.html`: consists of the form page.</li>
     <li>`index.html`: landing page.</li>
-    </ul>
 <li>`app.py`: Flask application for demonstrating the functionality of the trained model.</li>
 <li>`requirements.txt``: Cosnists of all the libraries required to run the model.</li>
+</ul>
 
 <h2>Usage</h2>
 <hr>
