@@ -12,7 +12,7 @@ This repository contains code for predicting vehicle insurance purchases using m
 
 <li>src: Includes scripts for different purposes:</li>
 <ul>
-    <li>`hyperparameters.py`: Defines hyperparameters used in the model.</li>
+    <li> `hyperparameters.py`: Defines hyperparameters used in the model.</li>
     <li>`exception.py`: Handles all the exceptions.</li>
     <li>`logger.py`: Logging functionalities for tracking the training process.</li>
     <li>`utils.py`: Consists of various functions which are used in other scripts.</li>
