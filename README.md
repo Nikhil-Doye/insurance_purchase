@@ -2,6 +2,8 @@
 <hr>
 This repository contains code for predicting vehicle insurance purchases using machine learning techniques. It includes multiple models and a preprocessing pipeline, along with scripts for data preprocessing, and training, and a Flask app for model demonstration.
 
+<h3>Demo - <a href="https://insurancepurchaseprediction.azurewebsites.net/predictdata">https://insurancepurchaseprediction.azurewebsites.net/predictdata</a></h3>
+
 <h2>Repository Structure</h2>
 <hr>
 <ul>
