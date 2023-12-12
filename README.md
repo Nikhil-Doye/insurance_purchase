@@ -1,15 +1,15 @@
 <h2>Overview</h2>
 <hr>
-This repository contains code for predicting vehicle insurance purchase using machine learning techniques. It includes multiple models and preprocessing pipeline, along with scripts for data preprocessing, training, and a Flask app for model demonstration.
+This repository contains code for predicting vehicle insurance purchases using machine learning techniques. It includes multiple models and a preprocessing pipeline, along with scripts for data preprocessing, and training, and a Flask app for model demonstration.
 
 <h2>Repository Structure</h2>
 <hr>
 <ul>
 <li>artifacts: Contains traina and test datasets, preprocessor and model pickle files.</li>
-<li>notebook: Consits of 2 jupyter notebooks, one for EDA and another for optimal thresholding.</li>
-</ul>
-<ul>
+<li>notebook: Consists of 2 jupyter notebooks, one for EDA and another for optimal thresholding.</li>
+
 <li>src: Includes scripts for different purposes:</li>
+<ul>
     <li>`hyperparameters.py`: Defines hyperparameters used in the model.</li>
     <li>`exception.py`: Handles all the exceptions.</li>
     <li>`logger.py`: Logging functionalities for tracking the training process.</li>
@@ -21,6 +21,7 @@ This repository contains code for predicting vehicle insurance purchase using ma
         <li>`model_trainer.py`: Contains training, validation and testing of the various models and picks the best one.</li></ul>
     <ul>pipeline:
         <li>`predict_pipeline.py`: Connects front end with preprocessor and model.</li>
+        </ul>
         </ul>
 <ul>templates:
     <li>`home.html`: consists of the form page.</li>
@@ -42,7 +43,7 @@ This repository contains code for predicting vehicle insurance purchase using ma
 <li>Set up a Python environment and install the necessary dependencies listed in requirements.txt.</li>
 <li>Utilize the provided scripts in the src directory for model training, data preprocessing, etc.</li>
 <li>Execute the run_pipeline.py script to train the model.</li>
-<li>Run the streamlit_app.py to experience the model via the Streamlit app.<li>
+<li>Run the app.py to experience the model via the Flask app.<li>
 </ol>
 
 <h2>Contributions</h2>
