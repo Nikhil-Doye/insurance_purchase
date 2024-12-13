@@ -1,52 +1,72 @@
-<h2>Overview</h2>
-<hr>
-This repository contains code for predicting vehicle insurance purchases using machine learning techniques. It includes multiple models and a preprocessing pipeline, along with scripts for data preprocessing, and training, and a Flask app for model demonstration.
+# 🚗 Vehicle Insurance Purchase Prediction
 
-<h3>Demo - <a href="https://insurancepurchaseprediction.azurewebsites.net/predictdata">https://insurancepurchaseprediction.azurewebsites.net/predictdata</a></h3>
+## 📖 Overview
+---
+This repository contains code for predicting **vehicle insurance purchases** using advanced machine learning techniques. It includes multiple models, a preprocessing pipeline, and scripts for data preparation, training, and deployment. Additionally, a **Flask app** is included for demonstrating the model's functionality.
 
-<h2>Repository Structure</h2>
-<hr>
-<ul>
-<li>artifacts: Contains traina and test datasets, preprocessor and model pickle files.</li>
-<li>notebook: Consists of 2 jupyter notebooks, one for EDA and another for optimal thresholding.</li>
+### 🌐 Demo
+Visit the live demo: [Insurance Purchase Prediction](https://insurancepurchaseprediction.azurewebsites.net/predictdata)
 
-<li>src: Includes scripts for different purposes:</li>
-<ul>
-    <li> `hyperparameters.py`: Defines hyperparameters used in the model.</li>
-    <li>`exception.py`: Handles all the exceptions.</li>
-    <li>`logger.py`: Logging functionalities for tracking the training process.</li>
-    <li>`utils.py`: Consists of various functions which are used in other scripts.</li>
-    </ul>
-    <li>components:</li>
-        <ul><li>`ingest_data.py`: Data ingestion</li>
-        <li>`data_transformation.py`: Transform data in such a manner which is suitable to be fed to the model.</li>
-        <li>`model_trainer.py`: Contains training, validation and testing of the various models and picks the best one.</li></ul>
-    <li>pipeline:
-        <ul><li>`predict_pipeline.py`: Connects front end with preprocessor and model.</li>
-        </ul>
-<li>templates:
-    <ul><li>`home.html`: consists of the form page.</li>
-    <li>`index.html`: landing page.</li></ul>
-<li>`app.py`: Flask application for demonstrating the functionality of the trained model.</li>
-<li>`requirements.txt``: Cosnists of all the libraries required to run the model.</li>
-</ul>
-</ul>
-<h2>Usage</h2>
-<hr>
-<ul>
-<li>Training: Use `data_ingestion.py` to execute the training process. Ensure necessary dependencies are installed by referring to the requirements.txt file.</li>
-<li>Demo: Run `app.py` to launch the Flask app for demonstrating the trained model. Make sure to have the required libraries installed as mentioned in `requirements.txt`.</li>
+## 🗂️ Repository Structure
+---
+- **`artifacts`**: Contains training and test datasets, preprocessor, and model pickle files.
+- **`notebook`**: Includes two Jupyter notebooks:
+  - **EDA Notebook**: Exploratory Data Analysis.
+  - **Optimal Thresholding Notebook**: Optimizing model thresholds.
+- **`src`**: Contains essential scripts:
+  - `hyperparameters.py`: Defines model hyperparameters.
+  - `exception.py`: Centralized exception handling.
+  - `logger.py`: Logging utilities for tracking training and debugging.
+  - `utils.py`: Helper functions for reuse across scripts.
+- **`components`**: Core processing modules:
+  - `ingest_data.py`: Handles data ingestion.
+  - `data_transformation.py`: Transforms raw data into model-ready formats.
+  - `model_trainer.py`: Trains, validates, and tests models, selecting the best one.
+- **`pipeline`**:
+  - `predict_pipeline.py`: Integrates the frontend with preprocessing and the trained model.
+- **`templates`**: HTML templates for the web interface:
+  - `home.html`: Input form page.
+  - `index.html`: Landing page.
+- **`app.py`**: Flask application for showcasing model predictions.
+- **`requirements.txt`**: Lists all the necessary libraries for running the project.
 
-<h2>Getting Started</h2>
-<hr>
-<ol>
-<li>Clone this repository.</li>
-<li>Set up a Python environment and install the necessary dependencies listed in requirements.txt.</li>
-<li>Utilize the provided scripts in the src directory for model training, data preprocessing, etc.</li>
-<li>Execute the run_pipeline.py script to train the model.</li>
-<li>Run the app.py to experience the model via the Flask app.</li>
-</ol>
+## 🚀 Usage
+---
+1. **Training**: Run `ingest_data.py` to start the training process. Ensure dependencies from `requirements.txt` are installed.
+2. **Demo**: Use `app.py` to launch the Flask application for interacting with the model.
 
-<h2>Contributions</h2>
-<hr>
-Contributions are welcome! Feel free to fork this repository, make changes, and create a pull request. Please adhere to the repository's guidelines.
+## 🛠️ Getting Started
+---
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/your-username/vehicle-insurance-prediction.git
+   ```
+2. Set up a Python virtual environment and install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Explore the scripts in the `src` directory for tasks like model training and data preprocessing.
+4. Run the pipeline:
+   ```bash
+   python pipeline/run_pipeline.py
+   ```
+5. Launch the Flask app:
+   ```bash
+   python app.py
+   ```
+
+## 🤝 Contributions
+---
+Contributions are always welcome! Here’s how you can contribute:
+1. Fork this repository.
+2. Create a feature branch (`git checkout -b feature-name`).
+3. Commit your changes (`git commit -m 'Add feature'`).
+4. Push to the branch (`git push origin feature-name`).
+5. Create a pull request.
+
+Please ensure you adhere to the repository’s guidelines when making contributions.
+
+---
+
+Thank you for exploring this project! 🎉 Feel free to reach out with questions or feedback. Let’s innovate together! 🚀
+
