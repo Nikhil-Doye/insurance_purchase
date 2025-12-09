@@ -2,7 +2,7 @@
 
 ## 📖 Overview
 ---
-This repository contains code for predicting **vehicle insurance purchases** using advanced machine learning techniques. It includes multiple models, a preprocessing pipeline, and scripts for data preparation, training, and deployment. Additionally, a **Flask app** is included for demonstrating the model's functionality.
+This repository contains code for predicting **vehicle insurance purchases** using advanced machine learning techniques. It includes multiple models, a preprocessing pipeline, and scripts for data preparation, training, and deployment. Additionally, a **Flask app** is included for demonstrating functionality of the model.
 
 ### 🌐 Demo
 Visit the live demo: [Insurance Purchase Prediction](https://insurancepurchaseprediction.azurewebsites.net/predictdata)
